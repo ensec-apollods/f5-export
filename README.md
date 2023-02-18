@@ -1,5 +1,5 @@
 # Introduction
-F5 export tool (f5export) is a command line interface (CLI) tool for exporting config data to a file.
+F5 export tool (f5export) is for exporting config data to a file.
 It will export the config of a F5 BIG-IP via the REST API interface.
 
 # Quick Start

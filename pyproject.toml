@@ -10,6 +10,7 @@ python = "^3.8"
 python-dotenv = "*"
 click = "*"
 bigrest = "*"
+requests = "*"
 pre-commit = "*"
 
 [tool.poetry.dev-dependencies]
