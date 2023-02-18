@@ -100,7 +100,7 @@ def ip_lookup(addr):
 
         # can't resolve it, so default to the address given
         shortname = addr
-        fqdn = "None"
+        fqdn = addr
 
     logging.debug(f"input: {addr}, hostname: {shortname}, fqdn: {fqdn}")
     return shortname, fqdn
