@@ -89,7 +89,7 @@ def ip_lookup(addr):
     """
 
     try:
-        fqdn = socket.gethostbyaddr(addr)[0]
+        fqdn = socket.gethostbyaddr(addr)[0].lower()
         shortname = fqdn.split(".")[0]
         if fqdn == shortname:
             fqdn = ""
