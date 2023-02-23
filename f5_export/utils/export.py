@@ -6,7 +6,7 @@ def init_csv(file_name):
     """
     Writes header to csv
     """
-    header = ["VS Name", "VS Hostname", "Pool Member Hosts"]
+    header = ["VS Name", "VS FQDN", "Pool Member Hosts"]
 
     with open(file_name, "w", newline="") as file:
         writer = csv.writer(file)
