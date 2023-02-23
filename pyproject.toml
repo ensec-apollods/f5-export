@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "f5-export"
-version = "v0.1.1"
+version = "v0.1.2"
 description = "F5 export tool, exports config data from a F5 BIG-IP"
 authors = ["Peter Baumann <peter.baumann@ensec.ch>"]
 license = "MIT"
