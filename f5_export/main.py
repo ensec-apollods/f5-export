@@ -60,7 +60,7 @@ def setup_logger(log_file, log_level):
 @click.option(
     "--timeout",
     default=15,
-    help=("Specifies the number of seconds to wait for a response from the device. (default: 15s)"),
+    help=("Specifies the number of seconds to wait for a response from the device. (default: 10s)"),
 )
 @click.option(
     "-o", "--output-filename", help=("Specify the output filename"), envvar="F5EXPORT_OUTPUT_FILENAME", required=False
