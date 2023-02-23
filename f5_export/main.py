@@ -12,9 +12,6 @@ from f5_export.utils.export import init_csv, append_csv
 # Get distribution info
 dist = distribution("f5_export")
 
-# CSV Filename
-csv_filename = "virtual_servers.csv"
-
 # load .env file
 load_dotenv()
 
@@ -65,8 +62,20 @@ def setup_logger(log_file, log_level):
     default=15,
     help=("Specifies the number of seconds to wait for a response from the device. (default: 15s)"),
 )
+@click.option(
+    "-o", "--output-filename", help=("Specify the output filename"), envvar="F5EXPORT_OUTPUT_FILENAME", required=False
+)
 @click.version_option(__version__)
-def main(hostname: str, username: str, password: str, verbose: bool, debug: bool, no_ssl_verify: bool, timeout: str):
+def main(
+    hostname: str,
+    username: str,
+    password: str,
+    verbose: bool,
+    debug: bool,
+    no_ssl_verify: bool,
+    timeout: str,
+    output_filename: str,
+):
     """
     F5 export tool (f5export) is a for exporting config data to a file.
     It will export the config of a F5 BIG-IP via the REST API interface.
@@ -85,10 +94,18 @@ def main(hostname: str, username: str, password: str, verbose: bool, debug: bool
         F5EXPORT_PASSWORD - Password. Requires F5EXPORT_USERNAME to be set.
 
         F5EXPORT_SSLVERIFY - This option overrides the default behavior of verifying SSL certificates.
+
+        F5EXPORT_OUTPUT_FILENAME - Specify the output filename
     """
 
     vs_ip = None
     loglevel = None
+
+    # CSV Filename
+    if output_filename:
+        csv_filename = output_filename
+    else:
+        csv_filename = "virtual_servers.csv"
 
     if verbose:
         loglevel = logging.INFO
